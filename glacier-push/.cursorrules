@@ -1,0 +1,9 @@
+# Godot 4.7 Rules for Cursor AI
+- Target Godot 4.7.x APIs and project features (`config/features` includes "4.7").
+- Always use Godot 4.x syntax (e.g., `await` instead of `yield`, `@export` instead of `export`).
+- Keep code strictly typed (e.g., `var position: Vector2i`).
+- Prefer Signal-driven architecture over polling in _process().
+- Organize grid logic using Vector2i dictionaries or 2D Arrays.
+- Use tabs for GDScript indentation.
+- Scene paths use res:// prefix.
+- Autoloads: GameState, Monetization, AudioManager.

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Comensis">
+  <!--
+    Comensis mark: three concentric rings.
+    Outer blue (solid), middle lime (gap at 12 o'clock), inner blue (gap at 9 o'clock).
+  -->
+  <defs>
+    <style>
+      .ring { fill: none; stroke-linecap: butt; stroke-linejoin: miter; }
+    </style>
+  </defs>
+
+  <!-- Outer ring  continuous blue -->
+  <circle class="ring" cx="64" cy="64" r="52" stroke="#2B66B1" stroke-width="10"/>
+
+  <!-- Middle ring  lime, gap at top (12 o'clock). Circumference H 238.76 -->
+  <circle
+    class="ring"
+    cx="64"
+    cy="64"
+    r="38"
+    stroke="#C5D92E"
+    stroke-width="10"
+    stroke-dasharray="222.76 16"
+    transform="rotate(-90 64 64)"
+  />
+
+  <!-- Inner ring  blue, gap at left (9 o'clock). Circumference H 138.23 -->
+  <circle
+    class="ring"
+    cx="64"
+    cy="64"
+    r="22"
+    stroke="#2B66B1"
+    stroke-width="10"
+    stroke-dasharray="126.23 12"
+    transform="rotate(180 64 64)"
+  />
+</svg>

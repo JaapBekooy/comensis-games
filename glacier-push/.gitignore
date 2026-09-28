@@ -1,0 +1,10 @@
+# Godot
+.godot/
+*.translation
+export.cfg
+# Keep export_presets.cfg in repo; ignore local android builds
+build/
+*.apk
+*.aab
+*.keystore
+.DS_Store

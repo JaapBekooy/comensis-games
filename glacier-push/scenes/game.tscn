@@ -1,0 +1,148 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/game_controller.gd" id="1"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.49, 0.84, 1, 1)
+
+[node name="SafeMargin" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="SafeMargin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="SafeMargin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Level"
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="SafeMargin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Targets"
+horizontal_alignment = 1
+
+[node name="HintLabel" type="Label" parent="SafeMargin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="BoardHost" type="Control" parent="SafeMargin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HUD" type="HBoxContainer" parent="SafeMargin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="UndoButton" type="Button" parent="SafeMargin/VBox/HUD"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 84)
+layout_mode = 2
+focus_mode = 0
+text = "Undo"
+
+[node name="RestartButton" type="Button" parent="SafeMargin/VBox/HUD"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 84)
+layout_mode = 2
+focus_mode = 0
+text = "Restart"
+
+[node name="HintButton" type="Button" parent="SafeMargin/VBox/HUD"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 84)
+layout_mode = 2
+focus_mode = 0
+text = "Hint"
+
+[node name="MenuButton" type="Button" parent="SafeMargin/VBox/HUD"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 84)
+layout_mode = 2
+focus_mode = 0
+text = "Menu"
+
+[node name="WinPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -220.0
+offset_right = 300.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinVBox" type="VBoxContainer" parent="WinPanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="WinTitle" type="Label" parent="WinPanel/WinVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "Cleared!"
+horizontal_alignment = 1
+
+[node name="WinBody" type="Label" parent="WinPanel/WinVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(1, 1, 1, 0.95)
+text = "Sweet! Ice path secured."
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="WinPanel/WinVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 88)
+layout_mode = 2
+focus_mode = 0
+text = "Next!"
+
+[node name="WinMenuButton" type="Button" parent="WinPanel/WinVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+focus_mode = 0
+text = "Levels"
+
+[connection signal="pressed" from="SafeMargin/VBox/HUD/UndoButton" to="." method="_on_undo_button"]
+[connection signal="pressed" from="SafeMargin/VBox/HUD/RestartButton" to="." method="_on_restart_button"]
+[connection signal="pressed" from="SafeMargin/VBox/HUD/HintButton" to="." method="_on_hint_pressed"]
+[connection signal="pressed" from="SafeMargin/VBox/HUD/MenuButton" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="WinPanel/WinVBox/NextButton" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="WinPanel/WinVBox/WinMenuButton" to="." method="_on_menu_pressed"]

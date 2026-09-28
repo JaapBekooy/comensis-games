@@ -1,0 +1,176 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/title_bg.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/ui/title_banner.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/ui/mascot_bear.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/ui/cloud.png" id="5"]
+[ext_resource type="Texture2D" path="res://assets/comensis_logo.png" id="6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="TitleBg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+texture = ExtResource("2")
+
+[node name="CloudA" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 40.0
+offset_top = 160.0
+offset_right = 280.0
+offset_bottom = 290.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+texture = ExtResource("5")
+
+[node name="CloudB" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 740.0
+offset_top = 220.0
+offset_right = 1000.0
+offset_bottom = 360.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+texture = ExtResource("5")
+
+[node name="SafeMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 28
+
+[node name="Content" type="VBoxContainer" parent="SafeMargin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="TitleBanner" type="TextureRect" parent="SafeMargin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+texture = ExtResource("3")
+
+[node name="Mascot" type="TextureRect" parent="SafeMargin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
+texture = ExtResource("4")
+
+[node name="ProgressLabel" type="Label" parent="SafeMargin/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.15, 0.35, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.75)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 26
+text = "50 puzzles per mode · pick your challenge"
+horizontal_alignment = 1
+
+[node name="EasyButton" type="Button" parent="SafeMargin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 36
+text = "Easy · 2 ice blocks"
+
+[node name="HardButton" type="Button" parent="SafeMargin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 36
+text = "Hard · 3–4 ice blocks"
+
+[node name="CrazyButton" type="Button" parent="SafeMargin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 36
+text = "Crazy · 5–6 ice blocks"
+
+[node name="ContinueButton" type="Button" parent="SafeMargin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[node name="LevelsButton" type="Button" parent="SafeMargin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 76)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 28
+text = "Level Select"
+
+[node name="PremiumButton" type="Button" parent="SafeMargin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+text = "Remove Ads · $1.99"
+
+[node name="Spacer" type="Control" parent="SafeMargin/Content"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BrandRow" type="HBoxContainer" parent="SafeMargin/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 10
+
+[node name="Logo" type="TextureRect" parent="SafeMargin/Content/BrandRow"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+texture = ExtResource("6")
+
+[node name="BrandLabel" type="Label" parent="SafeMargin/Content/BrandRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.15, 0.35, 1)
+theme_override_font_sizes/font_size = 22
+text = "Made by Comensis"
+vertical_alignment = 1
+
+[connection signal="pressed" from="SafeMargin/Content/EasyButton" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="SafeMargin/Content/HardButton" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="SafeMargin/Content/CrazyButton" to="." method="_on_crazy_pressed"]
+[connection signal="pressed" from="SafeMargin/Content/ContinueButton" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="SafeMargin/Content/LevelsButton" to="." method="_on_levels_pressed"]
+[connection signal="pressed" from="SafeMargin/Content/PremiumButton" to="." method="_on_premium_pressed"]
